@@ -1,14 +1,12 @@
-<?php
-$DateAndTime = date('d/m/y h:i:s');
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Bien</title>
+	<title>Cumpleaños</title>
 </head>
 <body style="text-align: center;background-color: black;color:white;">
-<h1>Fecha</h1>
-<h2>La fecha y hora de tu sistema: <?php echo $DateAndTime; ?></h2>
+<h1>Cumpleaños</h1>
+<h2>¿Cuántos dias quedan para tu cumpleaños?:</h2>
 <form>
 	<a href="hola"><input type="button" name="Inicio" value="Inicio"></a>
 </form>
