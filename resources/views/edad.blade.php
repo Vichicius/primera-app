@@ -8,7 +8,7 @@
 <h2>Introduce tu fecha de nacimiento:</h2>
 <form method="POST" action="edad" id="a">
     @csrf
-    <input type="date" max= {{$hoy}}  name="nacimiento">
+    <input type="date" max= {{$hoy}}  name="nacimientoE">
     <input type="submit" value="Enviar">
     <br><br>
 	<a href="hola"><input type="button" name="Inicio" value="Inicio"></a>
