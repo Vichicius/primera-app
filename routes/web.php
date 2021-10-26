@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,11 +19,24 @@ Route::get('hola', function () {
 });
 
 Route::get('fecha', function () {
-    return view('fecha');
+    $DateAndTime = date('d/m/y h:i:s');
+    return view('fecha', ["fecha" => $DateAndTime]);
 });
 
-Route::match(['get','post'],'edad', function () {
-    return view('edad');
+Route::match(['get','post'],'edad', function (Request $request) {
+    $hoySTR = date('Y-m-d');
+    $output = "";
+    $inputNacimiento = $request->input("nacimiento");
+    if($inputNacimiento != ""){
+
+        $nacimiento = new DateTime($inputNacimiento);
+        $actual = new DateTime($hoySTR);
+
+        $diferencia = $nacimiento->diff($actual);
+        $output = $diferencia->format("Tienes %y años, %m meses y %d días");
+
+    }
+    return view('edad',["output"=>$output, "hoy"=>$hoySTR]);
 });
 
 Route::match(['get','post'],'cumple', function () {
